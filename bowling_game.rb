@@ -7,12 +7,15 @@ class BowlingGame
 		@rolls = []
 	end
 
+	# Record a roll in the game.
+	# pins - The Integer number of pins knocked down in this roll.
+	# Returns nothing.
 	def roll(pins)
 		@rolls << pins
 	end
 
 	def score
-		@rolls.inject {|sum, roll| sum + roll}
+		@rolls.reduce(:+)
 	end
 end
 
